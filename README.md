@@ -20,6 +20,7 @@ Atlatl!
 ##Keystrokes
 
 ^someletter = Control + someletter
+
 F# = Function key (1-12)
 
 Rumil | JOE | GNU Moe | Action  | Why this keystroke?
@@ -27,7 +28,7 @@ Rumil | JOE | GNU Moe | Action  | Why this keystroke?
 ^Q | ^_  | F7   | Undo          | Because three keys is too much for an operation as common as undo/redo, and function keys are too far away
 ^W | ^^  | F8   | Redo          | ''
 F1 | ^KH | F1   | Help          | Because F1 is the key most people will look for when seeking help
-^X | ^X  | None | Next word     | One of the moves I use most, so easily reachable with one hand
-^Z | ^Z  | None | Previous word | ''
+^X | ^X  |      | Next word     | One of the moves I use most, so easily reachable with one hand
+^Z | ^Z  |      | Previous word | ''
 ^O | ^KU | ^[U  | Beg. of file  | Rarely used actions; put next to each other.
 ^P | ^KV | ^[V  | End of file   | ''

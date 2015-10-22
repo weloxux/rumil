@@ -6,10 +6,11 @@
 #include "rumil.h"
 
 int main () {
+  int debugcounter = 0;
   int active = TRUE;
   char c;
   Buffer filebuffer;
-  
+    
   // TEMPORARY CODE: assume we don't open a file, but create a new one
   newbuffer(1024, filebuffer);
   
@@ -26,20 +27,21 @@ int main () {
     
     c = getchar(); // Get new character
     
+    
     if (strlen(filebuffer.content) >= filebuffer.size) {
       rebuffer(1024, filebuffer); // Add 1024 bytes to buffer
     }
     
     strcat(filebuffer.content, &c); // Add new character
     
+    active = !(c == KEY_ESC);
     
-    if (c == KEY_ESC) {
-      active = FALSE;
-    }
+    debugcounter++;
   }
     
   endwin();
   printf("%s\n", filebuffer.content);
+  printf("%i\n", debugcounter);
   exit(0);
 }
 

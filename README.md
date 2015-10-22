@@ -20,6 +20,6 @@ Atlatl!
 ##Keystrokes
 
 Rumil | JOE | GNU Moe | Action
-------------------------------
+---|----|---|-----------------
 ^z | ^_ | | Undo
 ^x | ^^ | | Redo

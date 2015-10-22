@@ -3,13 +3,11 @@
 #include <curses.h>
 #include "rumil.h"
 
-#define FALSE 0
-#define TRUE 1
-
-int main () { // Main program starts here
+int main () {
   int active = TRUE;
-  char *file;
-  char *filename;
+  
+  // TEMPORARY CODE: assume we don't open a file, but create a new one
+  
   
   (void) signal(SIGINT, quit); // Accept termination requests, and handle them nicely
   
@@ -19,18 +17,28 @@ int main () { // Main program starts here
   (void) cbreak(); 
   (void) echo();
   
-  while (active == TRUE) {
-    int c = getch(); // Get input
+  while (active == TRUE) { // Main program starts here
+    char c = getch();
     
-    active = FALSE;
+    
+    
+    if (c == KEY_ESC) {
+      active = FALSE;
+    }
   }
     
 
   quit(0);
 }
 
+struct action {
+  char type[5]; // TODO: Determine whether 5-character names are long enough
+  char *content;
+};
+
 static void quit(int sig) { // Gracefully quit
   endwin();
   
+  printf("Thanks for using Rumil");
   exit(sig);
 }

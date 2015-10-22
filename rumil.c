@@ -7,12 +7,11 @@
 
 int main () {
   int active = TRUE;
-  
-  int bl = 1;
-  char *filebuffer;
+  char c;
+  Buffer filebuffer;
   
   // TEMPORARY CODE: assume we don't open a file, but create a new one
-  filebuffer = newbuffer(bl);
+  newbuffer(1024, filebuffer);
   
   (void) signal(SIGINT, quit); // Accept termination requests, and handle them nicely
   
@@ -23,10 +22,15 @@ int main () {
   (void) echo();
   
   while (active == TRUE) { // Main program starts here
-    char c = getch();
-    filebuffer = rebuffer(filebuffer, bl, 1);
-    bl++;
-    strcat(filebuffer, c);
+    //printf("%x\n", filebuffer);
+    
+    c = getchar(); // Get new character
+    
+    if (strlen(filebuffer.content) >= filebuffer.size) {
+      rebuffer(1024, filebuffer); // Add 1024 bytes to buffer
+    }
+    
+    strcat(filebuffer.content, &c); // Add new character
     
     
     if (c == KEY_ESC) {
@@ -34,8 +38,9 @@ int main () {
     }
   }
     
-
-  quit(0);
+  endwin();
+  printf("%s\n", filebuffer.content);
+  exit(0);
 }
 
 struct action {

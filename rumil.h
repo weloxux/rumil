@@ -2,10 +2,16 @@
 #define FALSE 0
 #define KEY_ESC '\x1B'
 
+// define types
+typedef struct {
+  int size;
+  char * content;
+} Buffer;
+    
 // rumil.c
 static void quit (int sig);
 struct action;
 
 //fileops.c
-char * newbuffer (int bl);
-char * rebuffer (char *buff, int bl, int addlength);
+void newbuffer (int size, Buffer filebuffer);
+void rebuffer (int inc, Buffer filebuffer);

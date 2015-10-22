@@ -16,3 +16,10 @@ No. While I am a user of a modal editor myself, I am trying to keep Rumil as acc
 
 ###Odludl!
 Atlatl!
+
+##Keystrokes
+
+Rumil | JOE | GNU Moe | Action
+------------------------------
+^z | ^_ | | Undo
+^x | ^^ | | Redo

@@ -1,13 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "rumil.h"
 
 // Empty for now
 
-char * newbuffer (int bl) {
-  return (char *) malloc(bl);
+void newbuffer (int size, Buffer filebuffer) {
+  filebuffer.size = size;
+  filebuffer.content = (char *) malloc(size);
 }
 
-char * rebuffer (char * filebuffer, int bl, int addlength) {
-  return (char *) realloc(filebuffer, bl + addlength);
+void rebuffer (int inc, Buffer filebuffer) {
+  char * tempcontent = malloc(filebuffer.size + inc);
+  strcpy(tempcontent, filebuffer.content);
+  filebuffer.content = tempcontent;
+  filebuffer.size += inc;
 }

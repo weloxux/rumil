@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h> // For strcat
 #include <signal.h>
 #include <curses.h>
 #include "rumil.h"
@@ -24,6 +25,7 @@ int main () {
   while (active == TRUE) { // Main program starts here
     char c = getch();
     filebuffer = rebuffer(filebuffer, bl, 1);
+    bl++;
     strcat(filebuffer, c);
     
     
@@ -33,7 +35,7 @@ int main () {
   }
     
 
-  quit(0, filebuffer);
+  quit(0);
 }
 
 struct action {
@@ -41,10 +43,8 @@ struct action {
   char *content;
 };
 
-static void quit (int sig, char * filebuffer) { // Gracefully quit
+static void quit (int sig) { // Gracefully quit
   endwin();
-  
-  printf(&filebuffer); // DEBUG CODE
   
   exit(sig);
 }

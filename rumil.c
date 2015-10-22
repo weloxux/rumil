@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
 #include <curses.h>
@@ -6,8 +7,11 @@
 int main () {
   int active = TRUE;
   
-  // TEMPORARY CODE: assume we don't open a file, but create a new one
+  int bl = 1;
+  char *filebuffer;
   
+  // TEMPORARY CODE: assume we don't open a file, but create a new one
+  filebuffer = newbuffer(bl);
   
   (void) signal(SIGINT, quit); // Accept termination requests, and handle them nicely
   
@@ -19,7 +23,8 @@ int main () {
   
   while (active == TRUE) { // Main program starts here
     char c = getch();
-    
+    filebuffer = rebuffer(filebuffer, bl, 1);
+    strcat(filebuffer, c);
     
     
     if (c == KEY_ESC) {
@@ -28,7 +33,7 @@ int main () {
   }
     
 
-  quit(0);
+  quit(0, filebuffer);
 }
 
 struct action {
@@ -36,9 +41,10 @@ struct action {
   char *content;
 };
 
-static void quit(int sig) { // Gracefully quit
+static void quit (int sig, char * filebuffer) { // Gracefully quit
   endwin();
   
-  printf("Thanks for using Rumil");
+  printf(&filebuffer); // DEBUG CODE
+  
   exit(sig);
 }

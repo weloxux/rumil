@@ -3,8 +3,6 @@
 #include <string.h>
 #include "rumil.h"
 
-// Empty for now
-
 void newbuffer (int size, Buffer filebuffer) {
   filebuffer.size = size;
   filebuffer.content = (char *) malloc(size);

@@ -6,7 +6,6 @@
 #include "rumil.h"
 
 int main () {
-  int debugcounter = 0;
   int active = TRUE;
   char c;
   Buffer filebuffer;
@@ -36,13 +35,9 @@ int main () {
     
     active = !(c == KEY_ESC);
     
-    debugcounter++;
   }
-    
-  endwin();
-  printf("%s\n", filebuffer.content);
-  printf("%i\n", debugcounter);
-  exit(0);
+
+  quit(0);    
 }
 
 struct action {

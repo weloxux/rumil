@@ -1,5 +1,5 @@
 #Rumil
-Rumil is (rather, will be) a small sophisticated editor, similar in usage to JOE and GNU Moe, but with less keystrokes.
+Rumil is (rather, will be) a small sophisticated editor, similar in usage to JOE and GNU Moe, but with less keystrokes per command.
 
 ##License
 Rumil is licensed under the GNU GPL version 2.0, located in LICENSE.

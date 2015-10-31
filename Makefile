@@ -1,4 +1,4 @@
 CC=gcc
 
-rumil: rumil.c fileops.c
-	$(CC) -o rumil -lncurses rumil.c fileops.c
+rumil: rumil.c bufferops.c
+	$(CC) -o rumil -lncurses rumil.c bufferops.c
